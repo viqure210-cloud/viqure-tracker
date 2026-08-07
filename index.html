@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViQure 客户反馈历史档案</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f0f2f5; color: #1a1a1a; line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+.header { background: #2F5496; color: #fff; padding: 20px 24px; border-radius: 8px 8px 0 0; }
+.header h1 { font-size: 20px; font-weight: 600; }
+.header p { font-size: 13px; opacity: 0.85; margin-top: 4px; }
+.customer-card { background: #fff; border-left: 4px solid #ccc; margin-bottom: 12px; border-radius: 0 6px 6px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.customer-card.urgent { border-left-color: #E53935; }
+.customer-card.active { border-left-color: #FB8C00; }
+.customer-card.new { border-left-color: #43A047; }
+.customer-card.other { border-left-color: #9E9E9E; }
+.customer-name { padding: 14px 20px 8px; display: flex; align-items: center; gap: 8px; }
+.customer-name .badge { font-size: 11px; padding: 2px 8px; border-radius: 10px; color: #fff; font-weight: 500; }
+.badge.urgent { background: #E53935; }
+.badge.active { background: #FB8C00; }
+.badge.new { background: #43A047; }
+.badge.other { background: #9E9E9E; }
+.customer-name h2 { font-size: 16px; font-weight: 600; }
+.customer-name .email { font-size: 12px; color: #888; margin-left: 4px; }
+.customer-name .product { font-size: 11px; color: #2F5496; background: #E8EDF5; padding: 2px 8px; border-radius: 4px; }
+.bg { padding: 0 20px 6px; font-size: 13px; color: #555; }
+.history { padding: 0 20px 14px; list-style: none; }
+.history li { font-size: 13px; padding: 5px 0 5px 20px; position: relative; border-left: 2px solid #e0e0e0; margin-left: 4px; }
+.history li:last-child { border-left-color: transparent; }
+.history li::before { content: ""; position: absolute; left: -5px; top: 11px; width: 8px; height: 8px; border-radius: 50%; background: #bbb; }
+.history li:last-child::before { background: #2F5496; }
+.history li .date { font-weight: 600; color: #2F5496; margin-right: 6px; }
+/* Search filter */
+.search-bar { position: sticky; top: 0; z-index: 100; background: #1a1a2e; padding: 12px 20px; display: flex; align-items: center; gap: 12px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); flex-wrap: wrap; }
+.search-bar label { color: #ccc; font-size: 13px; white-space: nowrap; }
+.search-bar input { flex: 1; padding: 8px 12px; border-radius: 6px; border: 1px solid #444; background: #16213e; color: #e0e0e0; font-size: 14px; max-width: 320px; min-width: 160px; }
+.search-bar input:focus { outline: none; border-color: #2F5496; background: #1a2744; }
+.search-bar input::placeholder { color: #666; }
+.search-bar .result-count { font-size: 12px; color: #888; white-space: nowrap; }
+.search-bar .clear-btn { padding: 6px 14px; border-radius: 4px; border: none; background: #e53935; color: #fff; font-size: 12px; cursor: pointer; display: none; }
+.search-bar .clear-btn:hover { background: #c62828; }
+.customer-card.hidden { display: none; }
+.customer-card.highlight { box-shadow: 0 0 0 3px #2F5496, 0 1px 3px rgba(0,0,0,0.08); }
+.no-result { display: none; text-align: center; padding: 40px; color: #888; font-size: 15px; }
+.scroll-target { scroll-margin-top: 60px; }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+  <h1>ViQure 客户反馈历史档案</h1>
+  <p>在下方搜索框输入客户名/邮箱/产品即可快速定位 | 最后更新：2026-08-07</p>
+  <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" target="_blank" style="display:inline-block;margin-top:8px;padding:6px 16px;background:#43A047;color:#fff;border-radius:4px;text-decoration:none;font-size:13px;">📊 编辑看板 (Google Sheets)</a>
+</div>
+<div class="search-bar">
+  <label>🔍 搜索：</label>
+  <input type="text" id="searchInput" placeholder="输入客户名、邮箱或产品型号…" autocomplete="off">
+  <span class="result-count" id="resultCount"></span>
+  <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕ 清除</button>
+</div>
+
+<div class="customer-card urgent scroll-target" id="michael">
+<div class="customer-name"><span class="badge urgent">紧急</span><h2>Michael Furman</h2><span class="email">mikecfurman@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">购买 S-LD($900)，首次使用 5 分钟后故障。</div>
+<ul class="history">
+<li><span class="date">7/19</span>ViQure 同意换货，请求提供退货地址</li>
+<li><span class="date">7/29</span>仍未收到退款，催促</li>
+<li><span class="date">8/04</span>再次催促，要求直接退款+免费送 EpiPro 升级款作为补偿，威胁社媒曝光</li>
+</ul></div>
+<div class="customer-card urgent scroll-target" id="thomas">
+<div class="customer-name"><span class="badge urgent">紧急</span><h2>Thomas Kraut</h2><span class="email">T.Kraut@gmx.de</span><span class="product">EpiPro</span></div>
+<div class="bg">购买 EpiPro(EU/AU 220V)，7/30 收到发货通知但 DHL 追踪号无效。</div>
+<ul class="history">
+<li><span class="date">7/30</span>ViQure 发送发货通知，DHL 追踪号 340434623847327064</li>
+<li><span class="date">8/04</span>客户反映追踪号无效，已等 5 周，催促发货</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="jesse">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Jesse Kuosmanen</h2><span class="email">zippa.duppa@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">购买 S-LD，因 EU 充电器兼容性问题退货。</div>
+<ul class="history">
+<li><span class="date">7/21-28</span>客户查阅当地物流选项（Matkahuolto/Posti），ViQure 建议用 Posti</li>
+<li><span class="date">8/03</span>已退货，提供运费收据 26.90</li>
+<li><span class="date">8/04</span>提供 PayPal：zippa.duppa@gmail.com</li>
+<li><span class="date">8/05</span>包裹在途，提供 Posti 追踪码，待到达后退款+报销</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="aren">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Aren Hobbie</h2><span class="email">arenhobbie@gmail.com</span><span class="product">EpiPro</span></div>
+<div class="bg">EpiPro 开关故障，要求换货。</div>
+<ul class="history">
+<li><span class="date">7/19</span>ViQure 同意换货，请求确认退货地址</li>
+<li><span class="date">7/22</span>客户提供退货地址</li>
+<li><span class="date">7/29</span>客户催促退货标签（已超 3 工作日）</li>
+<li><span class="date">7/30</span>ViQure 提供 USPS 退货标签</li>
+<li><span class="date">8/04</span>客户已在邮局投递退货包裹</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="goomax">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Goomax</h2><span class="email">goomaxaba@gmail.com</span><span class="product">—</span></div>
+<div class="bg">退货退款处理中。系统退款已处理，运费需通过 PayPal 报销，但客户无 PayPal。</div>
+<ul class="history">
+<li><span class="date">7/29</span>ViQure 处理系统退款（不含运费）</li>
+<li><span class="date">7/30</span>客户提供运费收据，无 PayPal，请求 Wise 卡</li>
+<li><span class="date">7/31</span>ViQure 仅支持 PayPal，建议用亲友账户</li>
+<li><span class="date">7/31</span>客户反馈亲友无 PayPal，建议加到退款金额</li>
+<li><span class="date">8/03</span>客户催促退款到账时间</li>
+<li><span class="date">8/05</span>再次催促</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="devina">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Devina YadavBaker</h2><span class="email">devinayadavbaker@gmail.com</span><span class="product">EpiPro</span></div>
+<div class="bg">购买 EpiPro(VQ5445)，反映无法切换皮肤焕肤模式，发 YouTube 视频证明。</div>
+<ul class="history">
+<li><span class="date">8/03</span>客户反映无法切换焕肤模式，发视频证明说明书有模式切换</li>
+<li><span class="date">8/03</span>追加：说明书只到第 11 页</li>
+<li><span class="date">8/04</span>ViQure 解释新版操作升级，无需手动切换模式，功能不变</li>
+<li><span class="date">8/04</span>客户追问确认：区别仅是操作方式和凝胶不同？待回复</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="cat">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Cat Cat / Catherine Silva</h2><span class="email">cathyandisabelle@gmail.com</span><span class="product">EpiPro</span></div>
+<div class="bg">5 月购买 EpiPro(VQ5189)，仅用数次。设备接触皮肤自动关机。用两个邮箱联系，并在 Facebook 留言。</div>
+<ul class="history">
+<li><span class="date">8/04</span>客户反映设备接触皮肤自动关机，提供视频+SN</li>
+<li><span class="date">8/04</span>ViQure 请求提供视频/SN/订单号以诊断</li>
+<li><span class="date">8/05</span>客户从另一个邮箱再发一次，附 Facebook 留言链接</li>
+<li><span class="date">8/06</span>客户发送灯头特写照片，等待技术团队诊断结果</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="levi">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Levi Blevins</h2><span class="email">leviblevins276@gmail.com</span><span class="product">EpiPro</span></div>
+<div class="bg">首次购买 EpiPro 故障，替换品用 1 小时后能量明显衰减。</div>
+<ul class="history">
+<li><span class="date">7/17</span>首次反映设备故障</li>
+<li><span class="date">7/29</span>ViQure 发送替换品（UPS 1ZJ140F20308582552）</li>
+<li><span class="date">8/04</span>客户反映替换品用 1 小时后能量衰减，要求退款</li>
+<li><span class="date">8/04</span>ViQure 请求提供 SN/照片/视频以诊断</li>
+<li><span class="date">8/04</span>客户回复：放置一天后设备恢复正常，暂时继续使用</li>
+</ul></div>
+<div class="customer-card new scroll-target" id="sanjana">
+<div class="customer-name"><span class="badge new">新</span><h2>Dr. Sanjana Sharoff</h2><span class="email">sanjana.sanjaysharoff@gmail.com</span><span class="product">激光头盔</span></div>
+<div class="bg">印度医生，想购买激光头盔用于临床评估，潜在复购。</div>
+<ul class="history">
+<li><span class="date">8/04</span>客户发邮件询价，询问医师折扣、印度兼容性、保修政策。待回复</li>
+</ul></div>
+<div class="customer-card new scroll-target" id="sal">
+<div class="customer-name"><span class="badge new">新</span><h2>sal diaz</h2><span class="email">ziadrodavlas@gmail.com</span><span class="product">—</span></div>
+<div class="bg">网站联系表单提交。</div>
+<ul class="history">
+<li><span class="date">8/04</span>客户询问：灰白发能否使用？待回复</li>
+</ul></div>
+<div class="customer-card new scroll-target" id="kakkar">
+<div class="customer-name"><span class="badge new">新</span><h2>S M Kakkar</h2><span class="email">ebaygirl4922@gmail.com</span><span class="product">—</span></div>
+<div class="bg">新购买(VQ5956)，要求退货。</div>
+<ul class="history">
+<li><span class="date">8/05</span>客户发邮件请求退货，附购买凭证。等待回复退货指引</li>
+</ul></div>
+<div class="customer-card new scroll-target" id="nathaniel">
+<div class="customer-name"><span class="badge new">已解决</span><h2>Nathaniel Glenn</h2><span class="email">nglenn93@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">购买 S-LD 数月后才打开，发现包装内缺少电源线。</div>
+<ul class="history">
+<li><span class="date">8/05</span>客户请求单独寄一根电源线，愿付邮费。待回复</li>
+<li><span class="date">8/06</span>✅ 在包装盒侧仓找到电源线，问题解决。客户表示自己都没注意到侧仓</li>
+</ul></div>
+<div class="customer-card new scroll-target" id="missypooh">
+<div class="customer-name"><span class="badge new">新</span><h2>missypooh</h2><span class="email">missypooh@comcast.net</span><span class="product">EpiPro</span></div>
+<div class="bg">通过 Facebook 广告进入，对 EpiPro 感兴趣。</div>
+<ul class="history">
+<li><span class="date">8/04</span>Tidio 在线客服：给了 10% 折扣仍嫌贵。未成交</li>
+</ul></div>
+<div class="customer-card other scroll-target" id="xxximy">
+<div class="customer-name"><span class="badge other">待确认</span><h2>xxximy xxximerton</h2><span class="email">robbieseanfinnegan@gmail.com</span><span class="product">—</span></div>
+<div class="bg">VQ6168 触发支付验证。</div>
+<ul class="history">
+<li><span class="date">8/04</span>ViQure 请求确认订单和支付方式</li>
+<li><span class="date">8/05</span>客户确认，ViQure 回复安排发货</li>
+</ul></div>
+<div class="customer-card other scroll-target" id="deleese">
+<div class="customer-name"><span class="badge other">差评</span><h2>Deleese Allen</h2><span class="email">deleeseallen@yahoo.com</span><span class="product">导冷凝胶</span></div>
+<div class="bg">通过 Judge.me 留下评价。</div>
+<ul class="history">
+<li><span class="date">8/04</span>1 星评价：导冷凝胶"感觉完全没用"。可通过 Judge.me 后台回复</li>
+</ul></div>
+<div class="customer-card urgent scroll-target" id="kyle">
+<div class="customer-name"><span class="badge urgent">紧急</span><h2>Kyle Van Leer</h2><span class="email">kyle.vanleer@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">设备所有档位自动关机，之前换过翻新机仍故障。SN: CY0000218OC30014</div>
+<ul class="history">
+<li><span class="date">8/06</span>客户报告 S-LD 所有档位（1-5）均自动关机。称之前替换品可能是翻新机。要求加急处理</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="julia">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Julia Zell</h2><span class="email">jzhp124@gmail.com</span><span class="product">—</span></div>
+<div class="bg">退货已签收 2 天，催促退款 #VQ5894</div>
+<ul class="history">
+<li><span class="date">7/22</span>客户发起退货，设备外观有凹痕</li>
+<li><span class="date">7/30</span>ViQure 发送退货标签 USPS: 9434650105799040496276</li>
+<li><span class="date">8/06</span>退货已签收 2 天，客户催促退款</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="larissa">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Larissa Stöhr</h2><span class="email">larissa1991@hotmail.de</span><span class="product">S-LD</span></div>
+<div class="bg">德国客户，激光不发射，已寄回退件等待发替换品。</div>
+<ul class="history">
+<li><span class="date">7/29</span>ViQure 请求技术诊断视频</li>
+<li><span class="date">7/31</span>ViQure 确认安排换货，提供德国退货地址</li>
+<li><span class="date">8/06</span>客户已寄回设备，确认退货地址。等待发替换品</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="stacy">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Stacy</h2><span class="email">stacy.major@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">不知道如何切换脱毛/焕肤模式，说明书无相关指引。</div>
+<ul class="history">
+<li><span class="date">8/06</span>通过官网表单咨询如何切换脱毛/焕肤模式。与 Devina 同类问题</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="seth">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Seth Freeman</h2><span class="email">sethf3000@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">新购 S-LD，要求退货。</div>
+<ul class="history">
+<li><span class="date">8/06</span>客户通过邮件请求退 S-LD 设备</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="steve">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Steve Mangham</h2><span class="email">steve@flagdad.com</span><span class="product">S-LD</span></div>
+<div class="bg">订购冷却凝胶但收到超声凝胶，承诺退 $20 未到账 #VQ5833</div>
+<ul class="history">
+<li><span class="date">(更早)</span>沟通多轮，ViQure 承诺退 $20 补偿凝胶货不对版</li>
+<li><span class="date">8/06</span>客户反映仍未收到退款，附照片证明收到的是超声凝胶</li>
+</ul></div>
+<div class="customer-card active scroll-target" id="helen">
+<div class="customer-name"><span class="badge active">处理中</span><h2>Helen Coates</h2><span class="email">helen.coates9@gmail.com</span><span class="product">S-LD</span></div>
+<div class="bg">两次尝试支付均失败，担心个人信息泄露。</div>
+<ul class="history">
+<li><span class="date">8/05</span>Shopify 弃购邮件触发</li>
+<li><span class="date">8/06</span>客户反映两次支付失败，担心信息泄露，要求解释</li>
+</ul></div>
+<div class="no-result" id="noResult">未找到匹配的客户 😕</div>
+</div>
+<script>
+var searchInput = document.getElementById('searchInput');
+var resultCount = document.getElementById('resultCount');
+var clearBtn = document.getElementById('clearBtn');
+var noResult = document.getElementById('noResult');
+var cards = document.querySelectorAll('.customer-card');
+
+function doSearch() {
+  var q = searchInput.value.trim().toLowerCase();
+  var visible = 0;
+  var firstMatch = null;
+
+  cards.forEach(function(card) {
+    card.classList.remove('highlight');
+    if (!q) {
+      card.classList.remove('hidden');
+      visible++;
+    } else {
+      var text = card.textContent.toLowerCase();
+      if (text.indexOf(q) !== -1) {
+        card.classList.remove('hidden');
+        card.classList.add('highlight');
+        visible++;
+        if (!firstMatch) firstMatch = card;
+      } else {
+        card.classList.add('hidden');
+      }
+    }
+  });
+
+  // Update count
+  if (!q) {
+    resultCount.textContent = '';
+    clearBtn.style.display = 'none';
+    noResult.style.display = 'none';
+  } else {
+    resultCount.textContent = visible + ' / ' + cards.length + ' 条结果';
+    clearBtn.style.display = visible > 0 ? 'inline-block' : 'inline-block';
+    noResult.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  // Scroll to first match
+  if (firstMatch) {
+    setTimeout(function() {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+function clearSearch() {
+  searchInput.value = '';
+  doSearch();
+  searchInput.focus();
+}
+
+// Real-time search on input
+searchInput.addEventListener('input', doSearch);
+
+// Enter key: scroll to first match
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    var first = document.querySelector('.customer-card:not(.hidden)');
+    if (first) {
+      first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+});
+
+// ESC to clear
+searchInput.addEventListener('keyup', function(e) {
+  if (e.key === 'Escape') {
+    clearSearch();
+  }
+});
+
+// Hash-based navigation (for Google Sheets links)
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    var el = document.getElementById(hash);
+    if (el) {
+      // Clear search to show all cards
+      searchInput.value = '';
+      cards.forEach(function(c) { c.classList.remove('hidden', 'highlight'); });
+      el.classList.add('highlight');
+      setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
+      setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 800);
+    }
+  }
+})();
+
+// Auto-focus on load
+searchInput.focus();
+</script>
+</body></html>
