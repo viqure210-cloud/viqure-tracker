@@ -5,31 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ViQure 客诉追踪 - 历史沟通记录</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; }
-.search-bar { position: sticky; top: 0; background: #fff; padding: 12px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 100; display: flex; gap: 12px; align-items: center; }
-.search-bar input { flex: 1; padding: 10px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
-.search-bar .count { font-size: 13px; color: #888; white-space: nowrap; }
-.container { max-width: 900px; margin: 0 auto; padding: 20px; }
-.card { background: #fff; border-radius: 10px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); overflow: hidden; }
-.card-header { padding: 16px 20px; border-bottom: 1px solid #eee; }
-.card-title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.customer-name { font-size: 18px; font-weight: 600; }
-.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; color: #fff; font-size: 12px; font-weight: 500; }
-.card-email { font-size: 13px; color: #888; margin-top: 4px; }
-.card-dates { font-size: 13px; color: #666; margin-top: 4px; }
-.card-body { padding: 16px 20px; }
-.field { margin-bottom: 14px; }
-.label { font-weight: 600; font-size: 13px; color: #555; display: block; margin-bottom: 6px; }
-.value { font-size: 14px; line-height: 1.7; color: #333; }
-.timeline { margin-top: 8px; }
-.timeline-item { border-left: 2px solid #e0e0e0; padding-left: 14px; margin-bottom: 10px; position: relative; }
-.timeline-item::before { content: ''; position: absolute; left: -5px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background: #28a745; }
-.timeline-date { font-size: 12px; font-weight: 600; color: #888; margin-bottom: 4px; }
-.timeline-content { background: #f9f9f9; border-radius: 6px; padding: 10px 14px; font-size: 13px; line-height: 1.6; color: #444; }
-.sheets-link { display: inline-block; margin-top: 8px; color: #1a73e8; text-decoration: none; font-size: 13px; }
-.sheets-link:hover { text-decoration: underline; }
-.no-data { font-size: 13px; color: #999; font-style: italic; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f5f5f5; color:#333; }
+.search-bar { position:sticky; top:0; background:#fff; padding:12px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1); z-index:100; display:flex; gap:12px; align-items:center; }
+.search-bar input { flex:1; padding:10px 16px; border:1px solid #ddd; border-radius:8px; font-size:14px; }
+.search-bar .count { font-size:13px; color:#888; white-space:nowrap; }
+.container { max-width:960px; margin:0 auto; padding:20px; }
+.card { background:#fff; border-radius:10px; margin-bottom:20px; box-shadow:0 1px 4px rgba(0,0,0,0.08); overflow:hidden; }
+.card-header { padding:16px 20px; border-bottom:1px solid #eee; }
+.card-title { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.customer-name { font-size:18px; font-weight:600; }
+.badge { display:inline-block; padding:3px 10px; border-radius:12px; color:#fff; font-size:12px; font-weight:500; }
+.card-email { font-size:13px; color:#888; margin-top:4px; }
+.card-dates { font-size:13px; color:#666; margin-top:4px; }
+.card-body { padding:16px 20px; }
+.field { margin-bottom:18px; }
+.field-label { font-weight:600; font-size:13px; color:#555; margin-bottom:6px; }
+.field-value { font-size:14px; line-height:1.7; }
+.summary-box { background:#f0f7ff; border-left:3px solid #1a73e8; padding:12px 16px; border-radius:6px; color:#333; }
+.progress-box { background:#fff8e1; border-left:3px solid #ff9800; padding:12px 16px; border-radius:6px; color:#333; }
+.timeline-container { margin-top:6px; }
+.tl-legend { display:flex; gap:16px; margin-bottom:12px; font-size:12px; color:#666; }
+.legend-item { display:flex; align-items:center; gap:4px; }
+.legend-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+.tl-entry { display:flex; margin-bottom:12px; }
+.tl-entry[data-side="left"] { justify-content:flex-end; }
+.tl-bubble { max-width:85%; padding:10px 14px; border-radius:10px; font-size:13px; line-height:1.6; }
+.tl-entry[data-side="right"] .tl-bubble { background:#f1f8e9; border:1px solid #c8e6c9; }
+.tl-entry[data-side="left"] .tl-bubble { background:#e8eaf6; border:1px solid #c5cae9; }
+.tl-header { display:flex; align-items:center; margin-bottom:4px; }
+.tl-date { font-size:11px; font-weight:600; color:#888; }
+.tl-text { color:#333; }
+.sheets-link { display:inline-block; margin-top:8px; color:#1a73e8; text-decoration:none; font-size:13px; }
+.sheets-link:hover { text-decoration:underline; }
+.no-data { font-size:13px; color:#999; font-style:italic; }
 </style>
 </head>
 <body>
@@ -54,14 +63,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">2025年6月购买设备(订单VQ2968)，使用一年多后闪光停止，重启后发出异响、无法开机。客户引用消费者权益法要求换货或退款。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">客户要求退款或换货，等待回复处理方案。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Ebru Anik 于8月10日投诉其 2025年6月22日购买的设备(订单 VQ2968)在使用一年多后出现故障：闪光停止、重启后发出异响、随后无法开机。客户援引英国《2015消费者权益法》，主张产品应具备合理耐用性，要求换货或退款。愿意提供照片或视频佐证。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">紧急待处理：需按标准流程先收集故障视频和订单信息，再决定处理方案(换货或退款)。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">客户投诉 2025年6月购买的设备（订单 VQ2968）使用一年多后故障：闪光停止、异响、无法开机。援引《消费者权益法2015》要求换货或退款。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">投诉 2025年6月22日购买的设备(订单 VQ2968)使用一年多后故障：闪光停止→异响→无法开机。援引英国《2015消费者权益法》要求换货或退款。愿意提供照片/视频。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -83,14 +108,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">叶谢邓律师行代表海尔智家发出版权侵权警告函，指控 ViQure 页面内容未经授权复制海尔作品，要求 7 日内移除并回复。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">法律警告函，需法务/运营评估处理。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">2026年8月10日，叶谢邓律师行受海尔智家委托，向 ViQure 发出正式版权侵权警告函(编号 JP-20260810-7053)。指控 ViQure 平台部分页面内容未经授权复制海尔原创作品，引用香港《版权条例》(第528章)及美国 DMCA 第512条。要求 7 日内移除侵权内容并书面回覆确认，逾期将采取民事及刑事法律行动。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">法律警告函，7日期限内需移除侵权内容并书面回覆。需法务/运营紧急评估处理。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">【紧急法律】叶谢邓律师行代表海尔智家发出版权侵权警告函（JP-20260810-7053），要求 7 日内移除侵权内容并书面回覆，逾期将采取法律行动。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">叶谢邓律师行(代表海尔)</span>
+        </div>
+        <div class="tl-text">发出版权侵权警告函 JP-20260810-7053：指控 ViQure 页面未经授权复制海尔原创内容。要求7日内(至8月17日)移除侵权内容并书面回覆，援引香港《版权条例》第528章第22/23/26/107/108条及美国 DMCA 第512条。逾期将采取法律行动。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -112,54 +153,165 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">EpiPro 升级版缺失皮肤嫩肤模式切换按钮。客户不满，要求换回旧版本设备，已提供退换地址。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">客户要求换回旧版本，已提供地址，等待安排退换。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Devina YadavBaker 于 2026年7月31日咨询其 ViQure S-LD(订单 VQ5445)如何切换脱毛/嫩肤模式，称说明书无相关指引、网上方法(长按强度键)无效。ViQure 8月3日回复称设备无需独立模式切换键，通过调整参数和手法即可实现。客户随后发来 YouTube 测评视频，显示旧版本设备的确有独立切换按键，质疑新设备为何缺失该功能，且说明书仅11页。ViQure 经产品团队确认后于8月4日承认今年初进行了升级，去掉了独立切换键、简化为调整能量+手法操作。客户8月5日追问升级时间(4个月前测评视频仍是旧版)，继续催促后 ViQure 8月7日正式承认升级，并主动提出可换回旧版本。经过8月8-9日确认升级变更清单后，客户决定换回旧版本，并于8月10日提供了换货地址。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">客户已决定换回旧版本设备，地址已提供(2004 Interchange Drive, Plain City, Ohio 43064)。等待 ViQure 安排退换流程和退货标签。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-31</div>
-        <div class="timeline-content">客户询问 ViQure S-LD 如何切换脱毛/嫩肤模式，长按强度键无效，说明书无相关说明。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-31</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">首次咨询：S-LD 设备找不到皮肤嫩肤模式切换方式，说明书无相关指引，长按强度键无效。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-31</div>
-        <div class="timeline-content">客户尝试多种方法仍无法切换模式，询问是否需更换设备。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-31</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">补充：已尝试多种方式均无效，询问是否需要更换设备。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-03</div>
-        <div class="timeline-content">客户发来 YouTube 测评视频链接，指出旧版本设备有独立模式切换按键，质疑为何新版本没有。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-03</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">回复称 S-LD 不需要独立模式切换键，只需根据用途调整参数(能量级别和治疗手法)即可，说明书第8-10页为脱毛、第11-12页为嫩肤参数。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-03</div>
-        <div class="timeline-content">客户反馈说明书只有11页，没有模式切换说明；要求产品团队确认操作方式。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-03</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">发来 YouTube 测评视频链接(约5:41处)，指出旧版本设备确有独立的模式切换键，质疑 ViQure 的说法。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-03</div>
-        <div class="timeline-content">客户催问进展。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-03</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">补充说明自己的说明书仅11页(无第12页)，要求产品团队确认操作方式。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-04</div>
-        <div class="timeline-content">ViQure 解释升级后通过调整参数和手法实现脱毛/嫩肤功能，无需独立切换键。客户询问是否仅凝胶+手法不同。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-03</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">催促：「有进展了吗？」</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-05</div>
-        <div class="timeline-content">客户询问升级具体时间（4个月前的测评视频还是旧版操作方式），对简化后的操作仍存疑虑。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-04</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">经产品团队确认后回复：设备年初升级了操作方式，去掉了独立切换键以简化使用，功能完全不变、仅操作方式不同。承认说明书未更新，致歉。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-06</div>
-        <div class="timeline-content">客户再次催问升级细节。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-04</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">追问：区别仅仅是凝胶不同 + 画圈/提拉手法？</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-08</div>
-        <div class="timeline-content">ViQure 承认今年初做了升级：去掉独立模式切换键，简化操作为调整能量+手法。客户询问全部变更清单以决定是否换回旧版。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-04</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">再次解释设置差异：脱毛用推荐参数，嫩肤建议1-2级连续模式约20分钟。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">客户决定换回旧版本设备，表示新设备使用不多、包装完整。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-05</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">追问升级具体时间——4个月前的测评视频仍是旧版操作方式，对升级说法存疑。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">客户提供收件地址：2004 Interchange Drive, Plain City, Ohio 43064，等待退换安排。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">再次催促：「有消息吗？」</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">正式确认年初升级：唯一变更是去掉模式切换键、简化为调整能量+手法。主动提出可安排换回旧版本设备(尚有少量库存)。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-08</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">要求提供完整升级变更清单以决定是否换回旧版。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">提供详细升级清单——仅切换方式改变，性能/参数/界面均不变。等待客户决定。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">决定换回旧版本设备：「还好使用不多，盒子和配件都还在。」</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供换货收件地址：2004 Interchange Drive, Plain City, Ohio 43064。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -181,30 +333,84 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">产品问题同意发替换设备，客户提供地址 1110 Wooded Pl, Eagleville, PA 19403，要求发追踪号。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">已确认替换地址，等待发货并提供追踪号。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Kyle Van Leer 于 2026年8月6日投诉其 S-LD 设备(SN: CY0000218OC30014)在级别3-5下会自动关机，补充称级别1按第二次也关机，所有级别均无法使用。客户怀疑去年底收到的替换机是翻新机。ViQure 同日按标准流程要求提供故障视频、原始订单号和出光口照片。客户8月7日提供了原始订单号 VQ3168、故障视频和照片(Google Photos 链接)，并补充计数器也不增加。ViQure 8月9日回复同意直接发全新替换机，无需退还原设备。客户8月10日提供收件地址，等待发货。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已同意发全新替换机(无需退还原设备)。客户已提供地址(1110 Wooded Pl, Eagleville, PA 19403)，等待 ViQure 发出替换机并提供追踪号。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-06</div>
-        <div class="timeline-content">客户投诉 S-LD 设备使用不足一年出现故障：3-5级功率下自动关机，怀疑上次的替换机是翻新机。SN: CY0000218OC30014。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">投诉 S-LD 设备使用不足一年即故障：3-5级功率下自动关机。SN: CY0000218OC30014。怀疑上次替换机为翻新机，要求加急处理。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-06</div>
-        <div class="timeline-content">客户补充：1级功率下按第二次即关机，所有级别均无法正常使用，要求加急处理。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">补充：级别1按第二次即关机，所有级别都无法使用。设备未过热，应可正常工作。要求加速处理。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-07</div>
-        <div class="timeline-content">提供原始订单号 VQ3168（去年8月底的替换机来源），附故障视频和图片，计数器不增加。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">按标准流程要求提供：1)故障视频、2)原始订单号、3)出光口清晰照片，承诺1-2工作日诊断。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-07</div>
-        <div class="timeline-content">视频附件发送失败，补充 Google Photos 链接。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供原始订单号 VQ3168(去年8月底的替换机来源)，附故障视频和图片，反馈计数器也不增加。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">ViQure 同意直接发全新替换机（无需退还原设备）。客户提供收件地址：1110 Wooded Pl, Eagleville, PA 19403，要求发追踪号。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">视频附件发送失败，补充 Google Photos 链接：https://photos.app.goo.gl/hMUzMbh9TE44sNTW7。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">同意直接发全新替换机，明确告知无需退还原设备。要求客户确认收件地址以安排发货。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供收件地址：1110 Wooded Pl, Eagleville, PA 19403；电话 215-586-1138。要求发追踪号。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -226,38 +432,138 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">S-LD 退货申请进行中(订单 VQ5955)。客户已确认退货地址(Albany, Oregon)和 SN 信息，等待退货标签发出。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">已确认地址和订单信息，等待发出退货标签。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Seth Freeman 于 2026年8月6日申请退回 ViQure S-LD 设备。ViQure 回复询问退货原因，客户8月7日说明所需高档位使用时疼痛感过强无法忍受。ViQure 尝试挽留——建议调整参数优化体验并询问皮肤类型、是否使用凝胶等细节。客户礼貌但坚定地表示仍选择退货，将来时间精力充裕时再考虑尝试。ViQure 8月9日确认同意退货退款，要求提供退货地址。客户同日提供地址(2230 Front Ave NE, Albany, Oregon 97321)并主动询问是否需要订单号等信息。ViQure 确认订单号 #VQ5955 并要求 SN 码。客户提供设备标签照片供确认。ViQure 确认信息齐全。目前等待退货标签。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">退货申请已确认，信息齐全(订单 VQ5955，地址、SN 已确认)。等待 ViQure 发出退货标签(承诺3个工作日内)。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-06</div>
-        <div class="timeline-content">客户联系 ViQure 申请退回 S-LD 设备。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">首次联系：申请退回 S-LD 设备。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-07</div>
-        <div class="timeline-content">客户说明退货原因：所需高档位使用时疼痛感过强无法忍受。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-06</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">回复询问退货原因，表示理解并愿意根据反馈改进产品。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-07</div>
-        <div class="timeline-content">ViQure 尝试建议调整参数优化体验，客户坚持退货，表示将来时间精力充裕再尝试。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">说明退货原因：所需高档位使用时疼痛感过强无法忍受。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-09</div>
-        <div class="timeline-content">客户确认退货地址：2230 Front Ave NE, Albany, Oregon 97321。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">尝试挽留——建议通过调整参数和手法优化体验，询问皮肤类型、是否使用凝胶、每次时长和强度级别。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-09</div>
-        <div class="timeline-content">客户主动询问是否需要提供订单号等额外信息处理退款。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-07</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">礼貌坚持退货决定：「将来时间精力充裕时会再尝试。」</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-09</div>
-        <div class="timeline-content">客户确认订单号 VQ5955，提供设备标签照片供 SN 码确认。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认同意退货退款，要求提供退货地址以便安排退货标签(承诺3个工作日内)。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">ViQure 确认信息齐全，客户等待退货标签。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供退货地址：2230 Front Ave NE, Albany, Oregon 97321；电话 (530)782-0653。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认收到地址，将尽快安排退货标签。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">主动询问是否需要订单号等信息处理退款。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认订单号是否为 #VQ5955，要求提供设备 SN 码。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">确认订单号 VQ5955 无误，附上设备标签照片供 SN 确认。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认信息齐全。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">确认收到，告知有任何需要可随时联系。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -279,14 +585,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">询问 EpiPro 808nm 运至泰国：运费关税、220V 适配性、FDA 文件、是否支持泰国配送等 9 项售前问题。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">等待回复所有售前问题。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">泰国客户 Charanwat Leewathanachot 于8月10日咨询 EpiPro 808nm 激光脱毛仪运至泰国购买事宜。询问是否支持泰国配送、220V 适配性、运费关税承担方、清关文件提供、历史发货记录、承运商和总价等9项售前问题。个人自用一台 150W 版本。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">待回复 9 项售前问题：泰国配送/220V/运费关税/清关文件/历史发货记录/承运商/150W 总价等。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">泰国客户咨询 EpiPro 808nm 购买：是否发往泰国、220V适配、运费关税、清关文件、历史发货记录、总价等9项售前问题。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">咨询 EpiPro 808nm 运至泰国：1)是否发往泰国；2)220V版本是否适用；3)运费关税 VAT 是否含在价格中；4)额外关税谁承担；5)是否提供商业发票/规格书/证书等清关文件；6)是否曾有泰国发货记录；7)使用哪家物流；8)150W版本含所有费用到泰国总价；9)是否有特殊购买流程。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -308,14 +630,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">深肤色客户询问 EpiPro 808nm 200W 对深色皮肤效果、敏感部位适用、60 天退换期不够用、是否有更大折扣等问题。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">等待回复售前咨询。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Diana(深肤色)于8月10日咨询 EpiPro 808nm 200W，共4个问题：1)之前用 Me Sleek(IPL+RF)仅去除 50-60% 毛发，EpiPro 能去除剩余的吗？2)能否用于女性私密部位？3)60天退换期过短(每4周用一次，60天只能用两次，看不清效果)，是否有更长保证期？4)目前10%折扣，是否会有更大折扣？</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">待回复 4 项售前问题：深肤色效果/私密部位适用性/退换期延长/更大折扣可能性。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">深肤色客户咨询 EpiPro 808nm 200W：之前用 IPL 仅去除 50-60% 毛发，能否去除剩余毛发；敏感部位适用性；60天退换期过短（4周一次只能使用2次）；是否会有更大折扣。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">咨询：1)之前用 IPL 仅去除 50-60%毛发，EpiPro 808nm 200W 能否去除剩余；2)能否用于女性私密部位(labia/perianal)；3)60天退换期不足(4周一次只能使用2次)是否有更长保证；4)当前10%折扣，未来是否会有更大折扣。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -337,14 +675,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">居住中国的客户询问 EpiPro 200W 中国仓购买：人民币价格、国内配送时效、220V 版本型号、保修服务、支付方式等 8 项问题。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">等待回复中国仓购买信息。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 hussain nizzami 居住在中国，8月10日咨询 EpiPro 200W 中国仓直接购买事宜，询问人民币价格、国内配送时效、220V 版本型号、保修服务、支付方式等8项售前问题。希望从中国仓库购买而非从海外进口。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">待回复 8 项售前问题：中国仓库存/价格(人民币)/配送时效/220V型号/保修/支付方式等。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">居住中国的客户咨询 EpiPro 200W 中国仓直接购买：人民币价格、中国仓库存、国内配送时效、220V版本型号、保修、支付方式等8项售前问题。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">咨询 EpiPro 200W 中国仓购买：1)中国仓是否有货；2)是否可直接发中国地址；3)人民币价格；4)国内配送时长；5)中国版与国际版是否一致；6)是否有中文说明书和本地保修；7)国内支付方式；8)220V 版本具体型号。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -366,14 +720,57 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">深肤色(V型)客户询问 S-LD 是否适用，是否有肤色检测防烫功能。之前已推荐 1064nm 版本但未收到回复。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">等待客户确认是否订购 1064nm 版本。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 saranya(南亚裔，肤色类型 V)此前通过 Tidio 在线客服咨询，ViQure 于5月根据其肤色推荐 1064nm 版本(当时尚未在网站上架)。客户8月10日回复询问 S-LD 是否适用其肤色、设备是否有肤色检测防烫功能，并对 1064nm 版本效果仍有疑虑。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">等待客户确认是否订购 1064nm 版本。需回复两个问题：1)S-LD 对V型肤色适用性；2)设备是否有肤色检测防烫功能。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">深肤色(V型)客户回复询问 S-LD 是否适用，设备是否有肤色检测防烫功能。此前 ViQure 已推荐 1064nm 版本（5月），客户仍有疑虑。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-05-01</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">通过 Tidio 首次咨询，询问哪款产品适合自己的肤色。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-05-24</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">根据客户发送的照片，推荐 1064nm 版本(非808nm)：波长更深，对深肤色更安全。当时1064nm 尚未正式上架，需先下单808nm 再手动切换。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-05-25</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">追问仍未收到回复(ViQure 回复延迟)。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">回复询问：S-LD 对自己肤色(V型)是否适用？设备是否有肤色检测防烫功能？对1064nm 推荐仍有疑虑。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -395,34 +792,129 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">已收到 EpiPro 替换机，开关功能正常。包裹中多收到两瓶凝胶未付费，客户询问如何补付凝胶费用。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">等待回复补付方式。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Aren Hobbie 于 2026年7月16日反馈其 EpiPro 200W 在使用数小时后开关失灵无法关机。ViQure 随后按标准流程收集故障视频、订单号和 SN 码，确认后同意安排替换。客户于7月22日提供退换地址，ViQure 承诺3个工作日内发送退货标签。因7月29日标签仍未发出，客户主动催促后，ViQure 于7月30日发出 USPS 退货标签(9434650105497040554377)。客户8月4日寄出退货包裹，ViQure 8月5日确认并于同日发出 UPS 替换机(1ZJ140F20336130326)。客户8月10日收到替换机，开关功能正常，但包裹中多收到两瓶凝胶未付费，主动询问补付方式。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已收到替换机并确认功能正常。待回复客户凝胶补付方式(客户主动提出)，回复后即可完结。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-16</div>
-        <div class="timeline-content">客户反馈 EpiPro 200W 使用数小时后开关失灵，无法关机，拔电重启无效。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-16</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">反馈 EpiPro 200W 使用数小时后开关失灵，无法关机，拔电重启仍无效。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-17</div>
-        <div class="timeline-content">客户提供故障视频、订单号 VQ5863、SN 码 251200000703111437，ViQure 同意安排替换。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-17</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">回复客户，按标准流程要求提供：1)故障视频、2)订单号、3)SN码及标签照片，承诺1-2个工作日内诊断。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-22</div>
-        <div class="timeline-content">客户确认退换地址：118 Ben Saville Rd, Rio, WV 26755。ViQure 承诺3个工作日内发退货标签。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-17</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供故障视频(Google Drive链接)、订单号 VQ5863、SN 码 251200000703111437，附 SN 标签照片。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-29</div>
-        <div class="timeline-content">客户催促退货标签，已过承诺的3个工作日仍未收到。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-19</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认可安排替换。要求客户提供退换收件地址以便发出退货标签，承诺3个工作日内安排。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-04</div>
-        <div class="timeline-content">客户已将退货包裹邮寄出（USPS），等待替换机发货。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-22</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供退换地址：118 Ben Saville Rd, Rio, WV 26755；电话 (681)207-8089。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">客户收到 EpiPro 替换机，开关功能正常。包裹中多出两瓶凝胶未付费，主动询问如何补付。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-22</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认收到地址，承诺3个工作日内安排退货标签，提醒客户寄回后提供追踪号以便同步发替换机。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-29</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">催促退货标签——已过承诺的3个工作日仍未收到。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-30</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">发出退货标签，USPS 追踪号 9434650105497040554377，要求客户尽快寄回。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-04</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">确认已将退货包裹交至邮局寄出。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-05</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认收到退货通知，告知替换机将在1个工作日内从仓库发出。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-05</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">替换机已发出：UPS 追踪号 1ZJ140F20336130326，提供追踪链接。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">已收到替换机，开关功能正常。包裹中多出两瓶凝胶未付费，主动询问如何补付款项。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -444,46 +936,183 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">订单 VQ5457 退货关税问题已解决，$629.10 退款已处理。DHL 确认不再需要 $109.74 关税，包裹即将清关配送。客户确认满意。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">退款已处理($629.10)，关税已免除，客户确认满意。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Hanna Jang 的退货案从 2026年6月26日持续至8月10日，历时约一个半月。因韩国海关清关失败，包裹被退回美国。DHL US 将退货包裹误申报为'标准进口'而非'退货/重进口'，要求支付 $109.74 关税。客户已自付逾 $250 退货运费，$629.10 退款因关税问题被卡。经过多轮沟通，客户协助提供 DHL US 关税争议部门联系方式、完整物流追踪记录和运单发货人信息。其间出现过一周无响应期(7月20-28日)，引发客户8月8日发最后通牒(3个工作日内解决否则发起银行争议)。ViQure 于8月10日确认关税已免除、$629.10 全额退款已处理(3-5工作日到账)，客户确认满意。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">关税已免除($109.74 无需支付)，$629.10 全额退款已处理(3-5工作日到账)。客户已确认满意。待退款到账后可完结。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-15</div>
-        <div class="timeline-content">包裹退货失败（韩国清关退运），DHL 要求支付 $109.74 关税才能进入美国仓库，客户主张此属退货应免关税。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-06-26</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">首次联系 ViQure 处理退货退款事宜。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-16</div>
-        <div class="timeline-content">韩国物流公司确认：申报类型被误记为标准进口而非退货。ViQure 建议自行联系 DHL，客户表示已自付 $250 退货运费，要求 ViQure 联系 DHL US 更正。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-09</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">(邮件引用推断)开始处理退货流程。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-20</div>
-        <div class="timeline-content">DHL Korea 明确告知：DAP 条款下更正只能由美方收货方发起。客户提供 DHL US 关税争议部门联系方式 duty_disputes@dhl.com，要求 ViQure 立即处理。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-15</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">通知客户 DHL 要求支付 $109.74 关税才能继续派送退回包裹。包裹因韩国清关失败被退回美国。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-20</div>
-        <div class="timeline-content">客户提供完整物流追踪（USPS→韩国邮政→DHL），协助 ViQure 物流团队核实退货真实性。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-15</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">解释此包裹因未通过韩国清关被退回，性质是'退货/重进口'而非新进口，应适用关税豁免，要求 ViQure 联系物流核查。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-28</div>
-        <div class="timeline-content">已超过一周无进展，客户委婉询问更新。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-16</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">回复称 DHL 方面关税无法从其端豁免，建议客户自行联系 DHL 说明情况，使用原始出口单据支持退货申报。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-29</div>
-        <div class="timeline-content">客户提供 DHL 运单上完整发货人信息（韩国大邱地址），配合核查。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-16</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">经韩国物流公司确认：申报类型被误填为'标准进口'而非'退货'。已自付 $250 退货运费，要求 ViQure 联系 DHL US 更正申报类型。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-07-31</div>
-        <div class="timeline-content">客户转发 DHL US 催缴关税邮件（$109.74），警告可能产生额外仓储费用。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-16</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">感谢说明，建议客户直接联系 DHL，用原始文件支撑退货/重进口身份。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-08</div>
-        <div class="timeline-content">客户极度不满：从6月26日至今近两个月未解决，已自付 $250+ 退货运费，$629.10 退款被卡至今。发最后通牒：3个工作日内解决否则发起银行争议并提供全部邮件日志作证据。</div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-20</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">DHL Korea 明确告知：DAP 条款下申报更正只能由美国收货方(ViQure)发起。提供 DHL US 关税争议部门邮箱 duty_disputes@dhl.com，要求 ViQure 立即处理。</div>
+      </div>
     </div>
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">ViQure 回复关税已解决（$109.74 无需再付），$629.10 全额退款已处理（3-5工作日到账）。客户确认满意，感谢团队处理。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-20</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">要求客户提供原始出库追踪号以便追溯物流历史。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-20</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供完整物流追踪：USPS 9434650105496035710200(ViQure→转运仓)→韩国邮政 6094314805178(到韩国海关但清关失败)→DHL 退回。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-20</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">确认收到追踪信息，表示将跟进相关方，请客户耐心等待。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-28</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">已超过一周无任何进展更新，委婉询问处理情况。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-29</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">表示正在跟 DHL US 跟进，要求客户提供 DHL 运单上的发货人姓名和地址以辅助核实。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-29</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">提供 DHL 运单完整发货人信息(Hanna Jang, 韩国大邱地址)。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-07-31</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">转发 DHL US 催缴关税邮件($109.74，含可能产生的仓储费警告)，收件人为 Chloe Liu(ViQure 物流联系人)。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-08</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">发最后通牒：从6月26日起近两个月未解决，已自付 $250+ 退货运费，$629.10 退款被卡至今。要求3个工作日内解决，否则发起银行争议并提供全部邮件记录作为证据。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">回复：关税问题已解决($109.74 无需再付)；$629.10 全额退款已处理(3-5工作日到账)。询问客户最后一次收到 DHL 通知的时间以确认状态同步。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">确认满意，感谢团队长期以来的处理。最后一次 DHL 通知为8月1日。等待退款到账。</div>
+      </div>
     </div>
         </div>
       </div>
@@ -505,14 +1134,39 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-
       </div>
     </div>
     <div class="card-body">
-      <div class="field"><span class="label">客户反馈摘要</span><div class="value">订单 VQ6218 地址确认（英国），询问是否需要另购凝胶使用设备。</div></div>
-      <div class="field"><span class="label">最新进展</span><div class="value">地址已确认，等待回复凝胶问题并安排发货。</div></div>
-      <div class="field"><span class="label">历史沟通记录</span>
-        <div class="timeline">
+      <div class="field">
+        <div class="field-label">客户反馈摘要</div>
+        <div class="field-value summary-box">客户 Lucy Thornewell，订单 VQ6218。ViQure 系统检测到发货地址可能有问题，8月10日主动联系确认地址。客户同日回复确认英国威尔士地址无误(无门牌号仅有门名 Crafnant)，同时询问是否需要另购凝胶才能使用设备。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">地址已确认(英国威尔士)。待回复客户凝胶购买问题，并安排发货。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">历史沟通记录</div>
+        <div class="timeline-container">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
           
-    <div class="timeline-item">
-        <div class="timeline-date">2026-08-10</div>
-        <div class="timeline-content">客户确认订单 VQ6218 英国地址（Crafnant, High Street, Dyffryn Ardudwy, LL442EH），询问是否需要另购凝胶使用设备。</div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e8f5e9; color:#2e7d32; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">ViQure</span>
+        </div>
+        <div class="tl-text">主动联系客户：系统检测订单 VQ6218 发货地址可能有问题，列出地址请客户确认。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-08-10</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">确认地址正确(Crafnant, High Street, Dyffryn Ardudwy, LL44 2EH, UK，无门牌号仅有门名)。询问是否需要另购凝胶使用设备。</div>
+      </div>
     </div>
         </div>
       </div>
