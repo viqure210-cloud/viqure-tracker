@@ -25,6 +25,9 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
 .summary-box { background:#f0f7ff; border-left:3px solid #1a73e8; padding:12px 16px; border-radius:6px; color:#333; }
 .progress-box { background:#fff8e1; border-left:3px solid #ff9800; padding:12px 16px; border-radius:6px; color:#333; }
 .timeline-container { margin-top:6px; }
+.tl-collapsed { display:none; }
+.tl-toggle-icon { font-size:11px; transition:transform 0.2s; }
+.tl-collapsed + * { } /* placeholder */
 .tl-legend { display:flex; gap:16px; margin-bottom:12px; font-size:12px; color:#666; }
 .legend-item { display:flex; align-items:center; gap:4px; }
 .legend-dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
@@ -64,7 +67,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Ebru Anik 于8月10日投诉其 2025年6月22日购买的设备(订单 VQ2968)在使用一年多后出现故障：闪光停止、重启后发出异响、随后无法开机。客户援引英国《2015消费者权益法》，主张产品应具备合理耐用性，要求换货或退款。愿意提供照片或视频佐证。</div>
       </div>
       <div class="field">
@@ -72,8 +75,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">紧急待处理：需按标准流程先收集故障视频和订单信息，再决定处理方案(换货或退款)。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_bf4fac69a3d9')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_bf4fac69a3d9">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_bf4fac69a3d9">(1 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_bf4fac69a3d9">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -109,7 +116,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">2026年8月10日，叶谢邓律师行受海尔智家委托，向 ViQure 发出正式版权侵权警告函(编号 JP-20260810-7053)。指控 ViQure 平台部分页面内容未经授权复制海尔原创作品，引用香港《版权条例》(第528章)及美国 DMCA 第512条。要求 7 日内移除侵权内容并书面回覆确认，逾期将采取民事及刑事法律行动。</div>
       </div>
       <div class="field">
@@ -117,8 +124,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">法律警告函，7日期限内需移除侵权内容并书面回覆。需法务/运营紧急评估处理。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_220c3e8bfb51')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_220c3e8bfb51">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_220c3e8bfb51">(1 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_220c3e8bfb51">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -154,7 +165,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Devina YadavBaker 于 2026年7月31日咨询其 ViQure S-LD(订单 VQ5445)如何切换脱毛/嫩肤模式，称说明书无相关指引、网上方法(长按强度键)无效。ViQure 8月3日回复称设备无需独立模式切换键，通过调整参数和手法即可实现。客户随后发来 YouTube 测评视频，显示旧版本设备的确有独立切换按键，质疑新设备为何缺失该功能，且说明书仅11页。ViQure 经产品团队确认后于8月4日承认今年初进行了升级，去掉了独立切换键、简化为调整能量+手法操作。客户8月5日追问升级时间(4个月前测评视频仍是旧版)，继续催促后 ViQure 8月7日正式承认升级，并主动提出可换回旧版本。经过8月8-9日确认升级变更清单后，客户决定换回旧版本，并于8月10日提供了换货地址。</div>
       </div>
       <div class="field">
@@ -162,8 +173,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">客户已决定换回旧版本设备，地址已提供(2004 Interchange Drive, Plain City, Ohio 43064)。等待 ViQure 安排退换流程和退货标签。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_2b5abf67d566')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_2b5abf67d566">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_2b5abf67d566">(16 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_2b5abf67d566">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -334,7 +349,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Kyle Van Leer 于 2026年8月6日投诉其 S-LD 设备(SN: CY0000218OC30014)在级别3-5下会自动关机，补充称级别1按第二次也关机，所有级别均无法使用。客户怀疑去年底收到的替换机是翻新机。ViQure 同日按标准流程要求提供故障视频、原始订单号和出光口照片。客户8月7日提供了原始订单号 VQ3168、故障视频和照片(Google Photos 链接)，并补充计数器也不增加。ViQure 8月9日回复同意直接发全新替换机，无需退还原设备。客户8月10日提供收件地址，等待发货。</div>
       </div>
       <div class="field">
@@ -342,8 +357,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">已同意发全新替换机(无需退还原设备)。客户已提供地址(1110 Wooded Pl, Eagleville, PA 19403)，等待 ViQure 发出替换机并提供追踪号。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_1c1c3341dd10')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_1c1c3341dd10">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_1c1c3341dd10">(7 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_1c1c3341dd10">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -433,7 +452,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Seth Freeman 于 2026年8月6日申请退回 ViQure S-LD 设备。ViQure 回复询问退货原因，客户8月7日说明所需高档位使用时疼痛感过强无法忍受。ViQure 尝试挽留——建议调整参数优化体验并询问皮肤类型、是否使用凝胶等细节。客户礼貌但坚定地表示仍选择退货，将来时间精力充裕时再考虑尝试。ViQure 8月9日确认同意退货退款，要求提供退货地址。客户同日提供地址(2230 Front Ave NE, Albany, Oregon 97321)并主动询问是否需要订单号等信息。ViQure 确认订单号 #VQ5955 并要求 SN 码。客户提供设备标签照片供确认。ViQure 确认信息齐全。目前等待退货标签。</div>
       </div>
       <div class="field">
@@ -441,8 +460,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">退货申请已确认，信息齐全(订单 VQ5955，地址、SN 已确认)。等待 ViQure 发出退货标签(承诺3个工作日内)。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_e583d4332bf9')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_e583d4332bf9">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_e583d4332bf9">(13 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_e583d4332bf9">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -586,7 +609,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">泰国客户 Charanwat Leewathanachot 于8月10日咨询 EpiPro 808nm 激光脱毛仪运至泰国购买事宜。询问是否支持泰国配送、220V 适配性、运费关税承担方、清关文件提供、历史发货记录、承运商和总价等9项售前问题。个人自用一台 150W 版本。</div>
       </div>
       <div class="field">
@@ -594,8 +617,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">待回复 9 项售前问题：泰国配送/220V/运费关税/清关文件/历史发货记录/承运商/150W 总价等。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_eebe7246bc27')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_eebe7246bc27">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_eebe7246bc27">(1 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_eebe7246bc27">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -631,7 +658,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Diana(深肤色)于8月10日咨询 EpiPro 808nm 200W，共4个问题：1)之前用 Me Sleek(IPL+RF)仅去除 50-60% 毛发，EpiPro 能去除剩余的吗？2)能否用于女性私密部位？3)60天退换期过短(每4周用一次，60天只能用两次，看不清效果)，是否有更长保证期？4)目前10%折扣，是否会有更大折扣？</div>
       </div>
       <div class="field">
@@ -639,8 +666,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">待回复 4 项售前问题：深肤色效果/私密部位适用性/退换期延长/更大折扣可能性。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_5479cf680932')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_5479cf680932">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_5479cf680932">(1 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_5479cf680932">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -676,7 +707,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 hussain nizzami 居住在中国，8月10日咨询 EpiPro 200W 中国仓直接购买事宜，询问人民币价格、国内配送时效、220V 版本型号、保修服务、支付方式等8项售前问题。希望从中国仓库购买而非从海外进口。</div>
       </div>
       <div class="field">
@@ -684,8 +715,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">待回复 8 项售前问题：中国仓库存/价格(人民币)/配送时效/220V型号/保修/支付方式等。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_989016aaa03a')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_989016aaa03a">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_989016aaa03a">(1 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_989016aaa03a">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -721,7 +756,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 saranya(南亚裔，肤色类型 V)此前通过 Tidio 在线客服咨询，ViQure 于5月根据其肤色推荐 1064nm 版本(当时尚未在网站上架)。客户8月10日回复询问 S-LD 是否适用其肤色、设备是否有肤色检测防烫功能，并对 1064nm 版本效果仍有疑虑。</div>
       </div>
       <div class="field">
@@ -729,8 +764,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">等待客户确认是否订购 1064nm 版本。需回复两个问题：1)S-LD 对V型肤色适用性；2)设备是否有肤色检测防烫功能。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_017636edb0d9')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_017636edb0d9">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_017636edb0d9">(4 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_017636edb0d9">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -793,7 +832,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Aren Hobbie 于 2026年7月16日反馈其 EpiPro 200W 在使用数小时后开关失灵无法关机。ViQure 随后按标准流程收集故障视频、订单号和 SN 码，确认后同意安排替换。客户于7月22日提供退换地址，ViQure 承诺3个工作日内发送退货标签。因7月29日标签仍未发出，客户主动催促后，ViQure 于7月30日发出 USPS 退货标签(9434650105497040554377)。客户8月4日寄出退货包裹，ViQure 8月5日确认并于同日发出 UPS 替换机(1ZJ140F20336130326)。客户8月10日收到替换机，开关功能正常，但包裹中多收到两瓶凝胶未付费，主动询问补付方式。</div>
       </div>
       <div class="field">
@@ -801,8 +840,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">已收到替换机并确认功能正常。待回复客户凝胶补付方式(客户主动提出)，回复后即可完结。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_d42c59cf6eec')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_d42c59cf6eec">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_d42c59cf6eec">(12 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_d42c59cf6eec">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -937,7 +980,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Hanna Jang 的退货案从 2026年6月26日持续至8月10日，历时约一个半月。因韩国海关清关失败，包裹被退回美国。DHL US 将退货包裹误申报为'标准进口'而非'退货/重进口'，要求支付 $109.74 关税。客户已自付逾 $250 退货运费，$629.10 退款因关税问题被卡。经过多轮沟通，客户协助提供 DHL US 关税争议部门联系方式、完整物流追踪记录和运单发货人信息。其间出现过一周无响应期(7月20-28日)，引发客户8月8日发最后通牒(3个工作日内解决否则发起银行争议)。ViQure 于8月10日确认关税已免除、$629.10 全额退款已处理(3-5工作日到账)，客户确认满意。</div>
       </div>
       <div class="field">
@@ -945,8 +988,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">关税已免除($109.74 无需支付)，$629.10 全额退款已处理(3-5工作日到账)。客户已确认满意。待退款到账后可完结。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_f989ec2f14cb')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_f989ec2f14cb">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_f989ec2f14cb">(18 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_f989ec2f14cb">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -1135,7 +1182,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
     <div class="card-body">
       <div class="field">
-        <div class="field-label">客户反馈摘要</div>
+        <div class="field-label">背景摘要</div>
         <div class="field-value summary-box">客户 Lucy Thornewell，订单 VQ6218。ViQure 系统检测到发货地址可能有问题，8月10日主动联系确认地址。客户同日回复确认英国威尔士地址无误(无门牌号仅有门名 Crafnant)，同时询问是否需要另购凝胶才能使用设备。</div>
       </div>
       <div class="field">
@@ -1143,8 +1190,12 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-value progress-box">地址已确认(英国威尔士)。待回复客户凝胶购买问题，并安排发货。</div>
       </div>
       <div class="field">
-        <div class="field-label">历史沟通记录</div>
-        <div class="timeline-container">
+        <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_15dc52680520')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_15dc52680520">&#9654;</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_15dc52680520">(2 条记录)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_15dc52680520">
           <div class="tl-legend">
             <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
             <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
@@ -1189,6 +1240,18 @@ function filterCards() {
     }
   }
   document.getElementById('count').textContent = '显示 ' + visible + ' / 12 条记录';
+}
+
+function toggleTimeline(id) {
+  var tl = document.getElementById(id);
+  var icon = document.getElementById('icon_' + id);
+  if (tl.classList.contains('tl-collapsed')) {
+    tl.classList.remove('tl-collapsed');
+    icon.textContent = '▼';
+  } else {
+    tl.classList.add('tl-collapsed');
+    icon.textContent = '▶';
+  }
 }
 if (window.location.hash) {
   var el = document.getElementById(window.location.hash.slice(1));
