@@ -973,7 +973,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="card-email">hna0328@naver.com</div>
       <div class="card-dates">
-        <span>首封: 2026-07-15</span>
+        <span>首封: 2026-06-12</span>
         <span> | </span>
         <span>最新: 2026-08-10</span>
       </div>
@@ -981,7 +981,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     <div class="card-body">
       <div class="field">
         <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">客户 Hanna Jang 的退货案从 2026年6月26日持续至8月10日，历时约一个半月。因韩国海关清关失败，包裹被退回美国。DHL US 将退货包裹误申报为'标准进口'而非'退货/重进口'，要求支付 $109.74 关税。客户已自付逾 $250 退货运费，$629.10 退款因关税问题被卡。经过多轮沟通，客户协助提供 DHL US 关税争议部门联系方式、完整物流追踪记录和运单发货人信息。其间出现过一周无响应期(7月20-28日)，引发客户8月8日发最后通牒(3个工作日内解决否则发起银行争议)。ViQure 于8月10日确认关税已免除、$629.10 全额退款已处理(3-5工作日到账)，客户确认满意。</div>
+        <div class="field-value summary-box">客户 Hanna Jang 的退货案从 2026年6月12日持续至8月10日，历时近两个月。6月12日因订单 VQ5457 在韩国海关清关失败而申请退货；6月26日进一步要求 ViQure 处理 DHL 关税申报问题。随后包裹被退回美国，但 DHL US 将退货包裹误申报为'标准进口'而非'退货/重进口'，要求支付 $109.74 关税。客户已自付逾 $250 退货运费，$629.10 退款因关税问题被卡。经过多轮沟通，客户协助提供 DHL US 关税争议部门联系方式、完整物流追踪记录和运单发货人信息。其间出现过一周无响应期(7月20-28日)，引发客户8月8日发最后通牒(3个工作日内解决否则发起银行争议)。ViQure 于8月10日确认关税已免除、$629.10 全额退款已处理(3-5工作日到账)，客户确认满意。</div>
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
@@ -991,7 +991,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <div class="field-label" style="cursor:pointer; display:flex; align-items:center; gap:6px;" onclick="toggleTimeline('tl_f989ec2f14cb')">
           历史沟通记录
           <span class="tl-toggle-icon" id="icon_tl_f989ec2f14cb">&#9654;</span>
-          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_f989ec2f14cb">(18 条记录)</span>
+          <span style="font-weight:400; font-size:12px; color:#888;" id="hint_tl_f989ec2f14cb">(19 条记录)</span>
         </div>
         <div class="timeline-container tl-collapsed" id="tl_f989ec2f14cb">
           <div class="tl-legend">
@@ -1002,10 +1002,19 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     <div class="tl-entry" data-side="left">
       <div class="tl-bubble">
         <div class="tl-header">
+          <span class="tl-date">2026-06-12</span>
+          <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
+        </div>
+        <div class="tl-text">首次联系：因订单 VQ5457 在韩国海关清关失败，申请退货并提供退货标签与退回地址；同时询问韩国客户未来如何购买。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
           <span class="tl-date">2026-06-26</span>
           <span style="background:#e3f2fd; color:#1565c0; border-radius:10px; padding:1px 8px; font-size:11px;; margin-left:6px;">客户</span>
         </div>
-        <div class="tl-text">首次联系 ViQure 处理退货退款事宜。</div>
+        <div class="tl-text">催促 ViQure 处理 DHL 关税申报问题，希望尽快推进退货退款。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="right">
@@ -1253,14 +1262,28 @@ function toggleTimeline(id) {
     icon.textContent = '▶';
   }
 }
-if (window.location.hash) {
-  var el = document.getElementById(window.location.hash.slice(1));
-  if (el) {
+function handleHash() {
+  var hash = window.location.hash.slice(1);
+  if (!hash) return;
+  var el = document.getElementById(hash);
+  if (!el) return;
+  // 自动展开该卡片的历史时间线
+  var tl = el.querySelector('.timeline-container');
+  if (tl && tl.classList.contains('tl-collapsed')) {
+    tl.classList.remove('tl-collapsed');
+    var icon = document.getElementById('icon_' + tl.id);
+    if (icon) icon.textContent = '▼';
+  }
+  // 滚动到卡片并高亮
+  setTimeout(function() {
     el.scrollIntoView({behavior: 'smooth', block: 'center'});
+    el.style.transition = 'box-shadow 0.3s';
     el.style.boxShadow = '0 0 0 3px #1a73e8';
     setTimeout(function() { el.style.boxShadow = ''; }, 3000);
-  }
+  }, 100);
 }
+if (window.location.hash) handleHash();
+window.addEventListener('hashchange', handleHash);
 </script>
 </body>
 </html>
