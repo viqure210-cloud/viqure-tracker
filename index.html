@@ -71,9 +71,9 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
 </div>
 <div class="stats-bar">
   <span>客户总数 <b>291</b></span>
-  <span>售后 <b>156</b> / 售前 <b>119</b></span>
-  <span>P0 <b>9</b> · P1 <b>60</b> · P2 <b>29</b> · P3 <b>193</b></span>
-  <span>已完结 <b>168</b> / 处理中 <b>123</b></span>
+  <span>售后 <b>153</b> / 售前 <b>122</b></span>
+  <span>P0 <b>9</b> · P1 <b>60</b> · P2 <b>26</b> · P3 <b>196</b></span>
+  <span>已完结 <b>165</b> / 处理中 <b>126</b></span>
   <span>邮件范围: 2026-07-01 ~ 2026-09-02</span>
 </div>
 <div class="container" id="cardContainer">
@@ -866,31 +866,31 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
-  <div class="card" data-type="售后" data-prio="P2" data-done="是" id="ec26bf98422e">
-    <div class="card-header" style="border-left: 4px solid #17a2b8">
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="ec26bf98422e">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
       <div class="card-title">
         <span class="customer-name">Mechelle Sunday</span>
-        <span class="badge" style="background:#6f42c1">售后</span>
-        <span class="badge" style="background:#17a2b8">P2</span>
-        <span class="badge" style="background:#155724">已完结</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
       </div>
       <div class="card-email">mechellesunday77@gmail.com</div>
       <div class="card-meta">
         <span>首封: 2026-07-03</span><span> | </span>
         <span>最新: 2026-07-03</span><span> | </span>
         <span>5 条往来</span>
-        
+        <span class="mini-prod">EpiPro-808nm/110V/200W</span>
       </div>
-      <div class="card-tags"><span class="mini-tag">屏幕异常（根因）</span><span class="mini-tag root">屏幕异常</span></div>
+      <div class="card-tags"></div>
     </div>
     <div class="card-body">
       <div class="field">
         <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">屏幕/触屏显示异常（订单 VQ5802）。$20.00。</div>
+        <div class="field-value summary-box">客户订单 VQ5802 电压咨询：下单后担心误选 220V（欧洲版），紧急联系需改为 110V；经核实订单实为美国版 200W（110V），适配美国电压，客户确认保留订单，正常发货。</div>
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">客户反馈屏幕/触屏异常（订单 VQ5802）</div>
+        <div class="field-value progress-box">客户确认订单为 110V 版本后保留原订单，期待收货试用。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_ec26bf98422e')">
@@ -910,7 +910,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-03 07:58:04</span>
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
-        <div class="tl-text">客户反馈屏幕/触屏异常（订单 VQ5802）</div>
+        <div class="tl-text">客户紧急联系：下单后意识到可能选错电压，需要 110V（美国版）而非 220V（欧洲版），请求协助改单。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="left">
@@ -919,7 +919,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-03 08:31:40</span>
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
-        <div class="tl-text">客户反馈屏幕/触屏异常（订单 VQ5802）</div>
+        <div class="tl-text">客户再次说明误选了 220V 版本，需要 110V；提及两版本存在差价，并询问超声凝胶事宜。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="right">
@@ -937,7 +937,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-03 11:09:00</span>
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
-        <div class="tl-text">客户反馈屏幕/触屏异常（订单 VQ5802）</div>
+        <div class="tl-text">客户确认：若订单实为 110V 版本则保留原订单，表示期待收货试用，感谢处理。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="right">
@@ -10082,13 +10082,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
-  <div class="card" data-type="售后" data-prio="P2" data-done="是" id="e1f6e21b5722">
-    <div class="card-header" style="border-left: 4px solid #17a2b8">
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="e1f6e21b5722">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
       <div class="card-title">
         <span class="customer-name">Catalina Metcalf</span>
-        <span class="badge" style="background:#6f42c1">售后</span>
-        <span class="badge" style="background:#17a2b8">P2</span>
-        <span class="badge" style="background:#155724">已完结</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
       </div>
       <div class="card-email">catalina.metcalf@yahoo.com</div>
       <div class="card-meta">
@@ -10097,16 +10097,16 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <span>2 条往来</span>
         <span class="mini-prod">EpiPro</span>
       </div>
-      <div class="card-tags"><span class="mini-tag">屏幕异常（根因）</span><span class="mini-tag root">屏幕异常</span></div>
+      <div class="card-tags"></div>
     </div>
     <div class="card-body">
       <div class="field">
         <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">屏幕/触屏显示异常（订单 VQ5362，EpiPro）。附故障视频。</div>
+        <div class="field-value summary-box">售前咨询：客户询问 808 激光脱毛/面部嫩肤是否需要涂抹凝胶及适用凝胶类型（订单 VQ5362）。</div>
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">客户反馈屏幕/触屏异常（订单 VQ5362）</div>
+        <div class="field-value progress-box">ViQure 已回复凝胶使用咨询。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_e1f6e21b5722')">
@@ -10126,7 +10126,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-21 04:07:36</span>
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
-        <div class="tl-text">客户反馈屏幕/触屏异常（订单 VQ5362）</div>
+        <div class="tl-text">客户咨询 808 激光脱毛时是否需要使用凝胶、应使用何种凝胶（视频中见他人涂抹透明凝胶），用于脱毛或面部嫩肤。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="right">
@@ -10135,7 +10135,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-21 14:09:09</span>
           <span class="tl-sender" style="background:#e8f5e9; color:#2e7d32;">ViQure</span>
         </div>
-        <div class="tl-text">ViQure 收集故障材料/信息</div>
+        <div class="tl-text">ViQure 回复客户凝胶使用咨询，说明脱毛/嫩肤适用的凝胶类型。</div>
       </div>
     </div>
         </div>
@@ -10786,13 +10786,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
-  <div class="card" data-type="售后" data-prio="P2" data-done="是" id="9670aee3d11a">
-    <div class="card-header" style="border-left: 4px solid #17a2b8">
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="9670aee3d11a">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
       <div class="card-title">
         <span class="customer-name">Anne Maher</span>
-        <span class="badge" style="background:#6f42c1">售后</span>
-        <span class="badge" style="background:#17a2b8">P2</span>
-        <span class="badge" style="background:#155724">已完结</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
       </div>
       <div class="card-email">anne.c.maher@gmail.com</div>
       <div class="card-meta">
@@ -10801,16 +10801,16 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
         <span>3 条往来</span>
         <span class="mini-prod">EpiPro</span>
       </div>
-      <div class="card-tags"><span class="mini-tag">屏幕异常（根因）</span><span class="mini-tag root">屏幕异常</span></div>
+      <div class="card-tags"></div>
     </div>
     <div class="card-body">
       <div class="field">
         <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">屏幕/触屏显示异常（EpiPro）。$50。</div>
+        <div class="field-value summary-box">客户赢得 $50 EpiPro 优惠券（SSGA50），反馈无法与其他优惠叠加使用；ViQure 已重新配置折扣码，现可叠加，问题解决。</div>
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">客户反馈屏幕/触屏异常（EpiPro，$50）</div>
+        <div class="field-value progress-box">ViQure 已重新配置并测试 $50 折扣码 SSGA50，现可与其他优惠码叠加使用。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_9670aee3d11a')">
@@ -10839,7 +10839,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-date">2026-07-29 08:28:56</span>
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
-        <div class="tl-text">客户反馈屏幕/触屏异常（EpiPro，$50）</div>
+        <div class="tl-text">客户反馈中奖的 $50 EpiPro 优惠券（SSGA50）无法与其他优惠叠加使用，附截图说明。</div>
       </div>
     </div>
     <div class="tl-entry" data-side="right">
@@ -22701,7 +22701,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">韩国客户使用Lipro两个月,真空手柄出现异响及导热板轻微脱落,请求A/S维修并附视频证据。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_529f845c5cd8')">
@@ -22970,7 +22970,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">中国域名注册商通知：第三方公司Xianda Ltd欲注册viqure.cn/.com.cn/.net.cn/.org.cn,询问是否我方授权经销商(商标/域名保护,非客诉)。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_a083b171fcba')">
@@ -23022,7 +23022,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">Bay State Asset Group律所代理Needlewood Content Works LLC发出版权侵权通知(参考号EN-2026QLP2-4Z3H,涉及ViQure页面),疑似钓鱼/批量模板邮件,非真实客户。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_14d96b965ede')">
@@ -23074,7 +23074,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">沙特客户回复Saudi短地址EADE7727,以完成订单发货所需的国家地址信息补充。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_7332c6fdee51')">
@@ -23126,7 +23126,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">推销邮件:JANET BECKY自称可为本月带来20-45个Viqure订单,寻求合作意向(非真实客户)。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_bb7171bb23f0')">
@@ -23178,7 +23178,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">Tidio实时聊天:新客户jcarrollmsw@gmail.com(美国)开启会话,首条消息仅打招呼'Hello',等待后续沟通。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_e19787b8c0e5')">
@@ -23230,7 +23230,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">潜在买家咨询ViQure EpiPro 808nm 200W的FDA 510(k)认证详情(认证号/制造商/型号/最大30J/cm²覆盖等5项专业问题,售前合规问询)。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_6bbe0c2c2acd')">
@@ -23282,7 +23282,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">新客户，待跟进。</div>
+        <div class="field-value progress-box">推销邮件:Marion Delorme冒充物流公司通知包裹#2609014853(参考DL-311764)已发货需签收,实为钓鱼/欺诈邮件,非真实客户。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_fcf71862415b')">
@@ -23311,7 +23311,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
   </div>
 </div>
-<div class="updated">数据更新于 2026-09-02 09:14 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-09-02 15:17 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
