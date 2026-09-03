@@ -67,14 +67,14 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
   <select id="doneFilter" onchange="filterCards()">
     <option value="">全部状态</option><option value="是">已完结</option><option value="否">处理中</option>
   </select>
-  <span class="count" id="count">共 16 条记录</span>
+  <span class="count" id="count">共 25 条记录</span>
 </div>
 <div class="stats-bar">
-  <span>客户总数 <b>16</b></span>
-  <span>售后 <b>5</b> / 售前 <b>5</b></span>
-  <span>P0 <b>1</b> · P1 <b>3</b> · P2 <b>1</b> · P3 <b>11</b></span>
-  <span>已完结 <b>0</b> / 处理中 <b>16</b></span>
-  <span>邮件范围: 2026-09-01 ~ 2026-09-02</span>
+  <span>客户总数 <b>25</b></span>
+  <span>售后 <b>7</b> / 售前 <b>12</b></span>
+  <span>P0 <b>1</b> · P1 <b>4</b> · P2 <b>1</b> · P3 <b>19</b></span>
+  <span>已完结 <b>0</b> / 处理中 <b>25</b></span>
+  <span>邮件范围: 2026-09-01 ~ 2026-09-03</span>
 </div>
 <div class="container" id="cardContainer">
 
@@ -90,7 +90,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <div class="card-meta">
         <span>首封: 2026-09-01</span><span> | </span>
         <span>最新: 2026-09-02</span><span> | </span>
-        <span>7 条往来</span>
+        <span>9 条往来</span>
         
       </div>
       <div class="card-tags"></div>
@@ -102,13 +102,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       </div>
       <div class="field">
         <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">客户不满ViQure称欧洲无法提供预付退货标签、拒绝再自行承担退货运费；因未及时收到标签未能在出行前寄出，计划9/18返家后再寄回，要求届时备好标签，等待客服答复。</div>
+        <div class="field-value progress-box">客户Mila回复运费报销安排：称无PayPal账户亦不计划注册，询问能否将退货运费直接汇至其银行账户；若确认可行，将于9/18返英后、9/21周一寄出设备。</div>
       </div>
       <div class="field">
         <div class="field-label toggler" onclick="toggleTimeline('tl_5808a19649df')">
           历史沟通记录
           <span class="tl-toggle-icon" id="icon_tl_5808a19649df">&#9654;</span>
-          <span class="tl-hint">(7 条要点)</span>
+          <span class="tl-hint">(9 条要点)</span>
         </div>
         <div class="timeline-container tl-collapsed" id="tl_5808a19649df">
           <div class="tl-legend">
@@ -177,6 +177,24 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
           <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
         </div>
         <div class="tl-text">客户对ViQure无法提供欧洲预付退货标签表示不解与不满，拒绝自行承担运费；因未及时收到标签未能昨日寄出，将9/18返家后再寄回设备，要求届时备好标签。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="right">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-02 17:49:08</span>
+          <span class="tl-sender" style="background:#e8f5e9; color:#2e7d32;">ViQure</span>
+        </div>
+        <div class="tl-text">ViQure回复Mila并致歉：经与英国仓确认无法提供预付退货标签，请其自行寄回曼彻斯特仓库，凭邮资凭证及PayPal邮箱全额报销运费；替换机已备妥，可按其意愿于9/18前或返家后安排发货。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-02 20:06:25</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Mila回复运费报销安排：称无PayPal账户亦不计划注册，询问能否将退货运费直接汇至其银行账户；若确认可行，将于9/18返英后、9/21周一寄出设备。</div>
       </div>
     </div>
         </div>
@@ -1099,8 +1117,485 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="04a482e6eddb">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Erik Lillethun</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">elilleth@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-02</span><span> | </span>
+        <span>最新: 2026-09-02</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Erik就订单VQ6292咨询发货进度：称下单已超10个工作日仍查不到发货信息，要求协助跟进物流状态。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户订单VQ6292疑似发货延迟，待客服核实该订单物流信息与发货安排后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_04a482e6eddb')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_04a482e6eddb">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_04a482e6eddb">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-02 20:31:26</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Erik询问订单VQ6292物流：称下单已逾10个工作日仍无任何发货信息，要求跟进处理。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="12aa6d004fd9">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Kelsey Walker</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">kelseywalker87@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-02</span><span> | </span>
+        <span>最新: 2026-09-02</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Kelsey(美国)通过官网表单咨询：welcome优惠码未能生效，询问是否有其他优惠可提供。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户welcome优惠码未能生效，待客服核实优惠码状态与可替代优惠后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_12aa6d004fd9')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_12aa6d004fd9">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_12aa6d004fd9">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-02 22:29:14</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Kelsey(美国)官网表单咨询：welcome优惠码未能生效，询问是否有其他可用优惠。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="0a4b6a9c0857">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">bwsmit</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">bwsmit@proton.me</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>2 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户bwsmit(荷兰)通过Tidio两次咨询优惠码：先问WELCOME码未能生效的原因，继而请求提供可用的折扣码。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户两次在Tidio咨询优惠码事宜，待客服在Tidio渠道提供可用折扣方案并回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_0a4b6a9c0857')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_0a4b6a9c0857">&#9654;</span>
+          <span class="tl-hint">(2 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_0a4b6a9c0857">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 01:17:02</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户bwsmit(荷兰)通过Tidio咨询：WELCOME优惠码未能生效的原因。</div>
+      </div>
+    </div>
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 01:25:57</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户bwsmit(荷兰)通过Tidio继续留言：请求提供一个可用的折扣码。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="3ff8898312fe">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Lori Oja</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">loriann.nodoubt@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Lori(美国)通过官网表单反馈：其折扣码未能生效，请求协助处理。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户折扣码未能生效，待客服核实优惠码状态并协助处理后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_3ff8898312fe')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_3ff8898312fe">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_3ff8898312fe">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 01:36:37</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Lori(美国)官网表单反馈：其折扣码未能生效，请求协助处理。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售后" data-prio="P3" data-done="否" id="78768218058f">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Melissa</span>
+        <span class="badge" style="background:#6f42c1">售后</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">melissa.hiya@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Melissa反馈订单VQ5527(6/5购入)设备效果疑问：使用一段时间仅见毛发生长暂时受抑，未观察到宣传所称的永久脱毛效果，请求解释设备原理与完整功能。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户对设备永久脱毛效果存疑，待客服说明设备原理、完整功能与效果预期后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_78768218058f')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_78768218058f">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_78768218058f">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 01:42:47</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Melissa咨询订单VQ5527设备(6/5购入)原理：目前仅见毛发生长暂时受抑，未见宣传所称永久脱毛结果，请求解释设备机制与全部功能。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="501b3028bf58">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">soccertrooper</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">soccertrooper@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户soccertrooper(美国)通过Tidio反馈：WELCOME 10%折扣码在结账环节未能生效，请求协助。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户结账时WELCOME优惠码未能生效，待客服核实优惠码状态后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_501b3028bf58')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_501b3028bf58">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_501b3028bf58">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 04:57:24</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户soccertrooper(美国)通过Tidio反馈：WELCOME 10%折扣码在结账环节未能生效。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售后" data-prio="P1" data-done="否" id="8a935d5d271a">
+    <div class="card-header" style="border-left: 4px solid #fd7e14">
+      <div class="card-title">
+        <span class="customer-name">Mel Stewart</span>
+        <span class="badge" style="background:#6f42c1">售后</span>
+        <span class="badge" style="background:#fd7e14">P1</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">stewart.pmel@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Mel跟进订单VQ5769退货流程：曾于8/26提交收件地址确认文件，现询问该地址是否可直接使用。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户退货流程中询问地址是否可用，待客服确认其8/26提交的地址信息后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_8a935d5d271a')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_8a935d5d271a">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_8a935d5d271a">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 06:29:13</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Mel跟进订单VQ5769退货流程：其8/26已提交发货地址确认文件，询问该地址是否可直接使用。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="ff2d2663434d">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Tammy</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">cortamver2@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Tammy(美国)通过官网表单咨询：购买200W激光脱毛仪并加购凝胶，welcome优惠码未能生效(移除凝胶后仍如此)，请求解决。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户购买200W设备及凝胶时优惠码未能生效，待客服核实优惠码适用规则后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_ff2d2663434d')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_ff2d2663434d">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_ff2d2663434d">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 08:21:54</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Tammy(美国)官网表单咨询：购买200W激光脱毛仪并加购凝胶，welcome优惠码不生效(移除凝胶后仍如此)，请求解决。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="2d9fe0ff1e89">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">Tammy Smith</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">03mineminemine@gmail.com</div>
+      <div class="card-meta">
+        <span>首封: 2026-09-03</span><span> | </span>
+        <span>最新: 2026-09-03</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户Tammy Smith(美国)通过官网表单咨询：拟购买200W激光脱毛仪及2瓶凝胶，welcome优惠码未能生效。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">已建档收录。客户拟购200W设备及2瓶凝胶但优惠码未能生效，待客服核实后回复客户。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_2d9fe0ff1e89')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_2d9fe0ff1e89">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_2d9fe0ff1e89">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-09-03 09:03:51</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户Tammy Smith(美国)官网表单咨询：拟购买200W激光脱毛仪及2瓶凝胶，welcome优惠码不生效。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
 </div>
-<div class="updated">数据更新于 2026-09-02 18:30 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-09-03 09:51 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
@@ -1119,7 +1614,7 @@ function filterCards() {
     c.style.display = ok ? '' : 'none';
     if (ok) visible++;
   }
-  document.getElementById('count').textContent = '显示 ' + visible + ' / 16 条记录';
+  document.getElementById('count').textContent = '显示 ' + visible + ' / 25 条记录';
 }
 function toggleTimeline(id) {
   var tl = document.getElementById(id);
