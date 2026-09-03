@@ -67,13 +67,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
   <select id="doneFilter" onchange="filterCards()">
     <option value="">全部状态</option><option value="是">已完结</option><option value="否">处理中</option>
   </select>
-  <span class="count" id="count">共 25 条记录</span>
+  <span class="count" id="count">共 24 条记录</span>
 </div>
 <div class="stats-bar">
-  <span>客户总数 <b>25</b></span>
-  <span>售后 <b>7</b> / 售前 <b>12</b></span>
-  <span>P0 <b>1</b> · P1 <b>4</b> · P2 <b>1</b> · P3 <b>19</b></span>
-  <span>已完结 <b>0</b> / 处理中 <b>25</b></span>
+  <span>客户总数 <b>24</b></span>
+  <span>售后 <b>6</b> / 售前 <b>12</b></span>
+  <span>P0 <b>1</b> · P1 <b>3</b> · P2 <b>1</b> · P3 <b>19</b></span>
+  <span>已完结 <b>0</b> / 处理中 <b>24</b></span>
   <span>邮件范围: 2026-09-01 ~ 2026-09-03</span>
 </div>
 <div class="container" id="cardContainer">
@@ -1438,58 +1438,6 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
-  <div class="card" data-type="售后" data-prio="P1" data-done="否" id="8a935d5d271a">
-    <div class="card-header" style="border-left: 4px solid #fd7e14">
-      <div class="card-title">
-        <span class="customer-name">Mel Stewart</span>
-        <span class="badge" style="background:#6f42c1">售后</span>
-        <span class="badge" style="background:#fd7e14">P1</span>
-        <span class="badge" style="background:#856404">处理中</span>
-      </div>
-      <div class="card-email">stewart.pmel@gmail.com</div>
-      <div class="card-meta">
-        <span>首封: 2026-09-03</span><span> | </span>
-        <span>最新: 2026-09-03</span><span> | </span>
-        <span>1 条往来</span>
-        
-      </div>
-      <div class="card-tags"></div>
-    </div>
-    <div class="card-body">
-      <div class="field">
-        <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">客户Mel跟进订单VQ5769退货流程：曾于8/26提交收件地址确认文件，现询问该地址是否可直接使用。</div>
-      </div>
-      <div class="field">
-        <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">已建档收录。客户退货流程中询问地址是否可用，待客服确认其8/26提交的地址信息后回复客户。</div>
-      </div>
-      <div class="field">
-        <div class="field-label toggler" onclick="toggleTimeline('tl_8a935d5d271a')">
-          历史沟通记录
-          <span class="tl-toggle-icon" id="icon_tl_8a935d5d271a">&#9654;</span>
-          <span class="tl-hint">(1 条要点)</span>
-        </div>
-        <div class="timeline-container tl-collapsed" id="tl_8a935d5d271a">
-          <div class="tl-legend">
-            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
-            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
-          </div>
-          
-    <div class="tl-entry" data-side="left">
-      <div class="tl-bubble">
-        <div class="tl-header">
-          <span class="tl-date">2026-09-03 06:29:13</span>
-          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
-        </div>
-        <div class="tl-text">客户Mel跟进订单VQ5769退货流程：其8/26已提交发货地址确认文件，询问该地址是否可直接使用。</div>
-      </div>
-    </div>
-        </div>
-      </div>
-      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
-    </div>
-  </div>
   <div class="card" data-type="售前" data-prio="P3" data-done="否" id="ff2d2663434d">
     <div class="card-header" style="border-left: 4px solid #6c757d">
       <div class="card-title">
@@ -1595,7 +1543,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
   </div>
 </div>
-<div class="updated">数据更新于 2026-09-03 09:51 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-09-03 10:50 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
@@ -1614,7 +1562,7 @@ function filterCards() {
     c.style.display = ok ? '' : 'none';
     if (ok) visible++;
   }
-  document.getElementById('count').textContent = '显示 ' + visible + ' / 25 条记录';
+  document.getElementById('count').textContent = '显示 ' + visible + ' / 24 条记录';
 }
 function toggleTimeline(id) {
   var tl = document.getElementById(id);
