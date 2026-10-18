@@ -73,13 +73,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
   <select id="doneFilter" onchange="filterCards()">
     <option value="">全部状态</option><option value="是">已完结</option><option value="否">处理中</option>
   </select>
-  <span class="count" id="count">共 206 条记录</span>
+  <span class="count" id="count">共 205 条记录</span>
 </div>
 <div class="stats-bar">
-  <span>客户总数 <b>206</b></span>
+  <span>客户总数 <b>205</b></span>
   <span>售后 <b>73</b> / 售前 <b>99</b></span>
-  <span>P0 <b>7</b> · P1 <b>48</b> · P2 <b>20</b> · P3 <b>131</b></span>
-  <span>已完结 <b>0</b> / 处理中 <b>206</b></span>
+  <span>P0 <b>7</b> · P1 <b>48</b> · P2 <b>20</b> · P3 <b>130</b></span>
+  <span>已完结 <b>0</b> / 处理中 <b>205</b></span>
   <span>邮件范围: 2026-09-01 ~ 2026-10-18</span>
 </div>
 <div class="container" id="cardContainer">
@@ -16474,49 +16474,6 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
-  <div class="card" data-type="咨询" data-prio="P3" data-done="否" id="66443d60f8a1">
-    <div class="card-header" style="border-left: 4px solid #6c757d">
-      <div class="card-title">
-        <span class="customer-name">V*** T***</span>
-        <span class="badge" style="background:#6f42c1">咨询</span>
-        <span class="badge" style="background:#6c757d">P3</span>
-        <span class="badge" style="background:#856404">处理中</span>
-      </div>
-      <div class="card-email">s***@viqure.com <span class="cust-code">编号 66443d</span></div>
-      <div class="card-meta">
-        <span>首封: 2026-10-13</span><span> | </span>
-        <span>最新: 2026-10-16</span><span> | </span>
-        <span>0 条往来</span>
-        
-      </div>
-      <div class="card-tags"></div>
-    </div>
-    <div class="card-body">
-      <div class="field">
-        <div class="field-label">背景摘要</div>
-        <div class="field-value summary-box">新客户咨询</div>
-      </div>
-      <div class="field">
-        <div class="field-label">最新进展</div>
-        <div class="field-value progress-box">已有11条沟通记录，待跟进。</div>
-      </div>
-      <div class="field">
-        <div class="field-label toggler" onclick="toggleTimeline('tl_66443d60f8a1')">
-          历史沟通记录
-          <span class="tl-toggle-icon" id="icon_tl_66443d60f8a1">&#9654;</span>
-          <span class="tl-hint">(0 条要点)</span>
-        </div>
-        <div class="timeline-container tl-collapsed" id="tl_66443d60f8a1">
-          <div class="tl-legend">
-            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
-            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
-          </div>
-          <div class="no-data">暂无历史记录</div>
-        </div>
-      </div>
-      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
-    </div>
-  </div>
   <div class="card" data-type="售前" data-prio="P3" data-done="否" id="da63bb447bd6">
     <div class="card-header" style="border-left: 4px solid #6c757d">
       <div class="card-title">
@@ -17205,7 +17162,7 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
     </div>
   </div>
 </div>
-<div class="updated">数据更新于 2026-10-18 09:14 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-10-18 09:16 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
@@ -17224,7 +17181,7 @@ function filterCards() {
     c.style.display = ok ? '' : 'none';
     if (ok) visible++;
   }
-  document.getElementById('count').textContent = '显示 ' + visible + ' / 206 条记录';
+  document.getElementById('count').textContent = '显示 ' + visible + ' / 205 条记录';
 }
 function toggleTimeline(id) {
   var tl = document.getElementById(id);
