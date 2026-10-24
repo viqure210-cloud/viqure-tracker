@@ -73,13 +73,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
   <select id="doneFilter" onchange="filterCards()">
     <option value="">全部状态</option><option value="是">已完结</option><option value="否">处理中</option>
   </select>
-  <span class="count" id="count">共 221 条记录</span>
+  <span class="count" id="count">共 222 条记录</span>
 </div>
 <div class="stats-bar">
-  <span>客户总数 <b>221</b></span>
-  <span>售后 <b>83</b> / 售前 <b>107</b></span>
-  <span>P0 <b>8</b> · P1 <b>53</b> · P2 <b>20</b> · P3 <b>140</b></span>
-  <span>已完结 <b>0</b> / 处理中 <b>221</b></span>
+  <span>客户总数 <b>222</b></span>
+  <span>售后 <b>84</b> / 售前 <b>107</b></span>
+  <span>P0 <b>8</b> · P1 <b>54</b> · P2 <b>20</b> · P3 <b>140</b></span>
+  <span>已完结 <b>0</b> / 处理中 <b>222</b></span>
   <span>邮件范围: 2026-09-01 ~ 2026-10-24</span>
 </div>
 <div class="container" id="cardContainer">
@@ -19487,8 +19487,60 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
+  <div class="card" data-type="售后" data-prio="P1" data-done="否" id="71a58f097889">
+    <div class="card-header" style="border-left: 4px solid #fd7e14">
+      <div class="card-title">
+        <span class="customer-name">A*** A***</span>
+        <span class="badge" style="background:#6f42c1">售后</span>
+        <span class="badge" style="background:#fd7e14">P1</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">a***@protonmail.com <span class="cust-code">编号 71a58f</span></div>
+      <div class="card-meta">
+        <span>首封: 2026-10-24</span><span> | </span>
+        <span>最新: 2026-10-24</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">A***下单EpiPro 300W（订单VQ****），收货后认为设备与自身发质不匹配、嫩肤功能也未达预期，主动来信要求办理退货并询问退货流程。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">客户明确要求退货并询问办理方式，我方尚未回复；待我方核实退货政策与寄回方式后给出指引，当前状态为待我方回复。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_71a58f097889')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_71a58f097889">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_71a58f097889">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-10-24 12:42:41</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户A***转发订单VQ****（EpiPro 300W）确认函，称设备与自身发质不匹配、嫩肤功能也未达预期，要求办理退货并询问后续流程。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
 </div>
-<div class="updated">数据更新于 2026-10-24 09:16 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-10-24 17:07 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
@@ -19507,7 +19559,7 @@ function filterCards() {
     c.style.display = ok ? '' : 'none';
     if (ok) visible++;
   }
-  document.getElementById('count').textContent = '显示 ' + visible + ' / 221 条记录';
+  document.getElementById('count').textContent = '显示 ' + visible + ' / 222 条记录';
 }
 function toggleTimeline(id) {
   var tl = document.getElementById(id);
