@@ -73,13 +73,13 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
   <select id="doneFilter" onchange="filterCards()">
     <option value="">全部状态</option><option value="是">已完结</option><option value="否">处理中</option>
   </select>
-  <span class="count" id="count">共 241 条记录</span>
+  <span class="count" id="count">共 242 条记录</span>
 </div>
 <div class="stats-bar">
-  <span>客户总数 <b>241</b></span>
-  <span>售后 <b>94</b> / 售前 <b>118</b></span>
-  <span>P0 <b>8</b> · P1 <b>58</b> · P2 <b>23</b> · P3 <b>152</b></span>
-  <span>已完结 <b>0</b> / 处理中 <b>241</b></span>
+  <span>客户总数 <b>242</b></span>
+  <span>售后 <b>94</b> / 售前 <b>119</b></span>
+  <span>P0 <b>8</b> · P1 <b>58</b> · P2 <b>23</b> · P3 <b>153</b></span>
+  <span>已完结 <b>0</b> / 处理中 <b>242</b></span>
   <span>邮件范围: 2026-09-01 ~ 2026-11-01</span>
 </div>
 <div class="container" id="cardContainer">
@@ -21751,8 +21751,60 @@ body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-s
       <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
     </div>
   </div>
+  <div class="card" data-type="售前" data-prio="P3" data-done="否" id="1e14a5d15e47">
+    <div class="card-header" style="border-left: 4px solid #6c757d">
+      <div class="card-title">
+        <span class="customer-name">B*** L***</span>
+        <span class="badge" style="background:#17a2b8">售前</span>
+        <span class="badge" style="background:#6c757d">P3</span>
+        <span class="badge" style="background:#856404">处理中</span>
+      </div>
+      <div class="card-email">b***@googlemail.com <span class="cust-code">编号 1e14a5</span></div>
+      <div class="card-meta">
+        <span>首封: 2026-11-01</span><span> | </span>
+        <span>最新: 2026-11-01</span><span> | </span>
+        <span>1 条往来</span>
+        
+      </div>
+      <div class="card-tags"></div>
+    </div>
+    <div class="card-body">
+      <div class="field">
+        <div class="field-label">背景摘要</div>
+        <div class="field-value summary-box">客户尚未下单，来信咨询 EpiPro 808nm 半导体脱毛仪单个疗程的操作方式：是否需像其用过的家用激光仪那样两周内每两天打一遍共七次，还是每个部位一遍即可完成疗程。</div>
+      </div>
+      <div class="field">
+        <div class="field-label">最新进展</div>
+        <div class="field-value progress-box">客户就单个疗程的打光频次与阶段安排提出咨询，尚未下单也无订单与退换诉求，目前等待我方答复标准疗程说明与每部位所需覆盖次数。</div>
+      </div>
+      <div class="field">
+        <div class="field-label toggler" onclick="toggleTimeline('tl_1e14a5d15e47')">
+          历史沟通记录
+          <span class="tl-toggle-icon" id="icon_tl_1e14a5d15e47">&#9654;</span>
+          <span class="tl-hint">(1 条要点)</span>
+        </div>
+        <div class="timeline-container tl-collapsed" id="tl_1e14a5d15e47">
+          <div class="tl-legend">
+            <span class="legend-item"><span class="legend-dot" style="background:#007bff"></span> 客户</span>
+            <span class="legend-item"><span class="legend-dot" style="background:#28a745"></span> ViQure</span>
+          </div>
+          
+    <div class="tl-entry" data-side="left">
+      <div class="tl-bubble">
+        <div class="tl-header">
+          <span class="tl-date">2026-11-01 10:18:55</span>
+          <span class="tl-sender" style="background:#e3f2fd; color:#1565c0;">客户</span>
+        </div>
+        <div class="tl-text">客户来信询问 EpiPro 808nm 半导体脱毛仪单个疗程怎么打：是否需像其他家用激光仪那样两周内每两天一遍共七次，还是每个部位一遍即可完成疗程。</div>
+      </div>
+    </div>
+        </div>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1gZjNRMRQiJoT469Tp4CWhhxlAwbn8v88hE2bBfVxDEM/edit" class="sheets-link" target="_blank">查看 Google Sheets 记录 &rarr;</a>
+    </div>
+  </div>
 </div>
-<div class="updated">数据更新于 2026-11-01 09:09 · 由邮件自动同步生成</div>
+<div class="updated">数据更新于 2026-11-01 17:06 · 由邮件自动同步生成</div>
 <script>
 function filterCards() {
   var q = document.getElementById('searchInput').value.toLowerCase();
@@ -21771,7 +21823,7 @@ function filterCards() {
     c.style.display = ok ? '' : 'none';
     if (ok) visible++;
   }
-  document.getElementById('count').textContent = '显示 ' + visible + ' / 241 条记录';
+  document.getElementById('count').textContent = '显示 ' + visible + ' / 242 条记录';
 }
 function toggleTimeline(id) {
   var tl = document.getElementById(id);
